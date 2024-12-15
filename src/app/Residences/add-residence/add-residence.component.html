@@ -1,0 +1,49 @@
+<a routerLink="/add-residence">Add Apartment</a>
+<form [formGroup]="residenceForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Name</label>
+      <input formControlName="name" />
+      <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
+        Name is required (minimum 3 characters).
+      </div>
+    </div>
+  
+    <div>
+      <label>Address</label>
+      <input formControlName="address" />
+      <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
+        Address is required.
+      </div>
+    </div>
+  
+    <div>
+      <label>Image URL</label>
+      <input formControlName="image" />
+      <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
+        Valid URL is required.
+      </div>
+    </div>
+  
+    <div>
+      <label>Status</label>
+      <select formControlName="status">
+        <option value="Disponible">Disponible</option>
+        <option value="En Construction">En Construction</option>
+        <option value="Vendu">Vendu</option>
+      </select>
+    </div>
+  
+    <div formArrayName="apartments">
+      <div *ngFor="let apt of apartments.controls; let i = index" [formGroupName]="i">
+        <h4>Apartment {{ i + 1 }}</h4>
+        <input formControlName="apartmentNumber" placeholder="Apartment Number" />
+        <input formControlName="floorNumber" placeholder="Floor Number" />
+        <input formControlName="surface" placeholder="Surface" />
+        <button (click)="apartments.removeAt(i)">Remove</button>
+      </div>
+    </div>
+  
+    <button (click)="addApartment()">Add Apartment</button>
+    <button type="submit" [disabled]="residenceForm.invalid">Submit</button>
+  </form>
+  

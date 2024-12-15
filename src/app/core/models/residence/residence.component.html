@@ -1,0 +1,29 @@
+
+<div>
+    <label for="search">Rechercher par adresse:</label>
+    <input type="text" id="search" [(ngModel)]="searchTerm" placeholder="Entrez une adresse" />
+  </div>
+  
+  <ul>
+    <li *ngFor="let residence of filteredResidences()">
+      {{ residence.name }} - {{ residence.address }}
+    </li>
+  </ul>
+<div *ngFor="let residence of listResidences">
+    <h2>{{ residence.name }}</h2>
+    <p>{{ getStatusMessage(residence.status) }}</p>
+    <div *ngIf="residence.status === 'Disponible'">
+        <span>✔️ Disponible</span>
+      </div>
+      <div *ngIf="residence.status === 'En Construction'">
+        <span>🏗️ En Construction</span>
+      </div>
+      <div *ngIf="residence.status === 'Vendu'">
+        <span>❌ Vendu</span>
+      </div>
+    <button (click)="showLocation(residence)">Show Location</button>
+
+    <button (click)="toggleFavorite(residence)">
+        {{ isFavorite(residence) ? 'Remove from Favorites' : 'Add to Favorites' }}
+      </button>
+  </div>

@@ -1,0 +1,7 @@
+<div *ngFor="let residence of listResidences">
+    <p>{{ residence.name }}</p>
+    <button [routerLink]="['/residences', residence.id]">Voir détails</button>
+    <button [routerLink]="['/residences', residence.id, 'apartments']">Voir Appartements</button>
+
+  </div>
+  

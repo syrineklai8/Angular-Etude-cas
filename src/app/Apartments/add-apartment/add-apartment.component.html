@@ -1,0 +1,53 @@
+<a routerLink="/add-apartment">Add Apartment</a>
+<form [formGroup]="apartForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Apartment Number</label>
+      <input formControlName="apartmentNumber" />
+      <div *ngIf="apartForm.get('apartmentNumber')?.invalid && apartForm.get('apartmentNumber')?.touched">
+        Apartment Number is required and must be a number.
+      </div>
+    </div>
+  
+    <div>
+      <label>Floor Number</label>
+      <input formControlName="floorNumber" />
+      <div *ngIf="apartForm.get('floorNumber')?.invalid && apartForm.get('floorNumber')?.touched">
+        Floor Number is required and must be a number.
+      </div>
+    </div>
+  
+    <div>
+      <label>Surface</label>
+      <input formControlName="surface" />
+      <div *ngIf="apartForm.get('surface')?.invalid && apartForm.get('surface')?.touched">
+        Surface is required.
+      </div>
+    </div>
+  
+    <div>
+      <label>Terrace</label>
+      <input type="checkbox" formControlName="terrace" />
+    </div>
+  
+    <div>
+      <label>Surface Terrace</label>
+      <input formControlName="surfaceTerrace" />
+    </div>
+  
+    <div>
+      <label>Residence</label>
+      <select formControlName="residence">
+        <option value="" disabled>Select Residence</option>
+        <option *ngFor="let residence of residences" [value]="residence.id">{{ residence.name }}</option>
+      </select>
+      <div *ngIf="apartForm.get('residence')?.invalid && apartForm.get('residence')?.touched">
+        Residence is required.
+      </div>
+    </div>
+  
+    <!-- Button container -->
+    <div class="button-container">
+      <button type="submit" [disabled]="apartForm.invalid">Add Apartment</button>
+    </div>
+  </form>
+  

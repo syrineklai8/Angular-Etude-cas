@@ -1,0 +1,105 @@
+/* Form container */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Labels */
+  form label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray */
+  }
+  
+  /* Input fields */
+  form input,
+  form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  /* Error messages */
+  form div div {
+    color: #e74c3c; /* Red */
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Apartment container */
+  form div[formArrayName="apartments"] {
+    border-top: 1px solid #ddd; /* Separator for apartments */
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+  
+  form div[formArrayName="apartments"] h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  form div[formArrayName="apartments"] input {
+    margin-bottom: 5px;
+  }
+  
+  form div[formArrayName="apartments"] button {
+    margin-top: 5px;
+    background-color: #dc3545; /* Red */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  form div[formArrayName="apartments"] button:hover {
+    background-color: #c82333; /* Darker red */
+  }
+  
+  /* Buttons */
+  form button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  form button:hover {
+    background-color: #0056b3; /* Darker blue */
+  }
+  
+  form button:disabled {
+    background-color: #ccc; /* Gray for disabled button */
+    cursor: not-allowed;
+  }
+  
+  /* Add Apartment Button */
+  form button:first-of-type {
+    background-color: #28a745; /* Green */
+  }
+  
+  form button:first-of-type:hover {
+    background-color: #218838; /* Darker green */
+  }
+  
